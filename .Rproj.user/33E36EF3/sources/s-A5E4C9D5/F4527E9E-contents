@@ -1,0 +1,11 @@
+---
+title: "Untitled"
+author: "Graham Casey Gibson"
+date: "3/30/2020"
+output: html_document
+---
+
+
+
+$\text{death}_t = CFR  \text{cases}_{t-13}$
+

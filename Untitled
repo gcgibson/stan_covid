@@ -1,0 +1,36 @@
+
+zmeanHDT <- 13
+zsdHDT <- 12.7
+zmedianHDT <- 4.1
+muHDT <- log(zmedianHDT)
+sigmaHDT <- sqrt(2*(log(zmeanHDT) - muHDT))
+hospitalisation_to_death_truncated <- function(x)
+{
+  dlnorm(x, muHDT, sigmaHDT)
+}
+
+scale_cfr <- function(data_1_in, delay_fun){
+  case_incidence <- data_1_in$positive
+  death_incidence <- data_1_in$death
+  cumulative_known_t <- 0 # cumulative cases with known outcome at time tt
+  # Sum over cases up to time tt
+  for(ii in 1:nrow(data_1_in)){
+    known_i <- 0 # number of cases with known outcome at time ii
+    for(jj in 0:(ii - 1)){
+      known_jj <- (case_incidence[ii - jj]*delay_fun(jj))
+      known_i <- known_i + known_jj
+    }
+    cumulative_known_t <- cumulative_known_t + known_i # Tally cumulative known
+  }
+  # naive CFR value
+  b_tt <- sum(death_incidence)/sum(case_incidence) 
+  # corrected CFR estimator
+  print (cumulative_known_t)
+  p_tt <- min(.999,sum(death_incidence)/max(cumulative_known_t,1))
+  data.frame(nCFR = b_tt, cCFR = p_tt, total_deaths = sum(death_incidence), 
+             cum_known_t = round(cumulative_known_t), total_cases = sum(case_incidence))
+}
+
+adjusted_cfr_df <- state_testing_data_d_pos %>% group_by(state) %>%   dplyr::mutate(cum_deaths = sum(death)) %>%
+  dplyr::do(scale_cfr(., delay_fun = hospitalisation_to_death_truncated)) %>% dplyr::ungroup(state)
+

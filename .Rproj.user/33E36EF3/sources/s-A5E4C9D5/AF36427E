@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1585750962632.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "AF36427E",
+    "lastKnownWriteTime" : 1585680847,
+    "last_content_update" : 1585680847,
+    "path" : "~/chaitra/exp_model3.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "139,0",
+        "scrollLine" : "147"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

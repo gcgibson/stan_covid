@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1585492976876.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "333A30E",
+    "lastKnownWriteTime" : 1585741729,
+    "last_content_update" : 1585741729231,
+    "path" : "~/hosp_delay/hosp_delay.R",
+    "project_path" : "hosp_delay.R",
+    "properties" : {
+        "cursorPosition" : "39,6",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
