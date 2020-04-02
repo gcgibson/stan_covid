@@ -4,6 +4,7 @@
 ~%2Fhosp_delay%2Fdeaths.csv="8BA7734"
 ~%2Fhosp_delay%2Fdelay.Rmd="B7496EC5"
 ~%2Fhosp_delay%2Fhosp_delay.R="7539D86F"
+~%2Fhosp_delay%2Fjags_stochastic_seir.R="3A0B952E"
 ~%2Fhosp_delay%2Fjags_stochastic_sir.R="D9A4DEBC"
 ~%2Fhosp_delay%2Fsir_again.R="FF4C7BC3"
 ~%2Fhosp_delay%2Fsir_again_d.R="4CD002DF"

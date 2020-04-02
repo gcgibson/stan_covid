@@ -108,3 +108,38 @@ Untracked files:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 ]0;~/hosp_delaygcgibsons-MacBook-Pro:hosp_delay gcgibson$ git dad[K[K[Kadd -A
+]0;~/hosp_delaygcgibsons-MacBook-Pro:hosp_delay gcgibson$ git commit -m  "stochastic s[KSIR jags workig[Kng"
+[master 4a7287f] stochastic SIR jags working
+ 17 files changed, 420 insertions(+), 130 deletions(-)
+ rewrite .Rproj.user/33E36EF3/console06/INDEX001 (84%)
+ delete mode 100644 .Rproj.user/33E36EF3/sources/s-A5E4C9D5/333A30E
+ delete mode 100644 .Rproj.user/33E36EF3/sources/s-A5E4C9D5/AF36427E
+ delete mode 100644 .Rproj.user/33E36EF3/sources/s-A5E4C9D5/BE12D60B
+ delete mode 100644 .Rproj.user/33E36EF3/sources/s-A5E4C9D5/F4527E9E
+ create mode 100644 .gitignore
+ rewrite SI_fit.rds (84%)
+ create mode 100644 jags_stochastic_sir.R
+ create mode 100644 sir_again_d.R
+]0;~/hosp_delaygcgibsons-MacBook-Pro:hosp_delay gcgibson$ git [Kgcgibsons-MacBook-Pro:hosp_delay gcgibson$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	[31mmodified:   .Rproj.user/33E36EF3/console06/A24FB66[m
+	[31mmodified:   .Rproj.user/33E36EF3/console06/A24FB66.env[m
+	[31mmodified:   .Rproj.user/33E36EF3/console06/INDEX001[m
+	[31mmodified:   .Rproj.user/33E36EF3/sources/prop/INDEX[m
+	[31mmodified:   .Rproj.user/shared/notebooks/paths[m
+	[31mmodified:   jags_stochastic_sir.R[m
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	[31mjags_stochastic_seir.R[m
+
+no changes added to commit (use "git add" and/or "git commit -a")
+]0;~/hosp_delaygcgibsons-MacBook-Pro:hosp_delay gcgibson$ git add
