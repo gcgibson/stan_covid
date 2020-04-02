@@ -18,3 +18,93 @@ To https://github.com/gcgibson/stan_covid.git
  * [new branch]      master -> master
 Branch 'master' set up to track remote branch 'master' from 'origin'.
 ]0;~/hosp_delaygcgibsons-MacBook-Pro:hosp_delay gcgibson$ git add -A
+]0;~/hosp_delaygcgibsons-MacBook-Pro:hosp_delay gcgibson$ git commit -m "model working"
+[master 5875338] model working
+ 45 files changed, 2582 insertions(+)
+ create mode 100644 .RData
+ create mode 100644 .Rhistory
+ create mode 100644 .Rproj.user/33E36EF3/console06/A24FB66
+ create mode 100644 .Rproj.user/33E36EF3/console06/A24FB66.env
+ create mode 100644 .Rproj.user/33E36EF3/console06/INDEX001
+ create mode 100644 .Rproj.user/33E36EF3/pcs/files-pane.pper
+ create mode 100644 .Rproj.user/33E36EF3/pcs/source-pane.pper
+ create mode 100644 .Rproj.user/33E36EF3/pcs/windowlayoutstate.pper
+ create mode 100644 .Rproj.user/33E36EF3/pcs/workbench-pane.pper
+ create mode 100644 .Rproj.user/33E36EF3/rmd-outputs
+ create mode 100644 .Rproj.user/33E36EF3/saved_source_markers
+ create mode 100644 .Rproj.user/33E36EF3/sources/prop/1981872B
+ create mode 100644 .Rproj.user/33E36EF3/sources/prop/1E927EB8
+ create mode 100644 .Rproj.user/33E36EF3/sources/prop/7539D86F
+ create mode 100644 .Rproj.user/33E36EF3/sources/prop/8BA7734
+ create mode 100644 .Rproj.user/33E36EF3/sources/prop/B7496EC5
+ create mode 100644 .Rproj.user/33E36EF3/sources/prop/FBF13092
+ create mode 100644 .Rproj.user/33E36EF3/sources/prop/FF4C7BC3
+ create mode 100644 .Rproj.user/33E36EF3/sources/prop/INDEX
+ create mode 100644 .Rproj.user/33E36EF3/sources/s-A5E4C9D5/333A30E
+ create mode 100644 .Rproj.user/33E36EF3/sources/s-A5E4C9D5/333A30E-contents
+ create mode 100644 .Rproj.user/33E36EF3/sources/s-A5E4C9D5/AF36427E
+ create mode 100644 .Rproj.user/33E36EF3/sources/s-A5E4C9D5/AF36427E-contents
+ create mode 100644 .Rproj.user/33E36EF3/sources/s-A5E4C9D5/B35C32A1-contents
+ create mode 100644 .Rproj.user/33E36EF3/sources/s-A5E4C9D5/BE12D60B
+ create mode 100644 .Rproj.user/33E36EF3/sources/s-A5E4C9D5/BE12D60B-contents
+ create mode 100644 .Rproj.user/33E36EF3/sources/s-A5E4C9D5/F4527E9E
+ create mode 100644 .Rproj.user/33E36EF3/sources/s-A5E4C9D5/F4527E9E-contents
+ create mode 100644 .Rproj.user/33E36EF3/sources/s-A5E4C9D5/F7645B37
+ create mode 100644 .Rproj.user/33E36EF3/sources/s-A5E4C9D5/F7645B37-contents
+ create mode 100644 .Rproj.user/33E36EF3/sources/s-A5E4C9D5/lock_file
+ create mode 100644 .Rproj.user/shared/notebooks/27104604-delay/1/33E36EF31424071C/chunks.json
+ create mode 100644 .Rproj.user/shared/notebooks/27104604-delay/1/s/chunks.json
+ create mode 100644 .Rproj.user/shared/notebooks/patch-chunk-names
+ create mode 100644 .Rproj.user/shared/notebooks/paths
+ create mode 100644 NA
+ create mode 100644 SI_fit.rds
+ create mode 100644 SI_fit.stan
+ create mode 100644 Untitled
+ create mode 100644 confirmed.csv
+ create mode 100644 deaths.csv
+ create mode 100644 delay.Rmd
+ create mode 100644 hosp_delay.R
+ create mode 100644 hosp_delay.Rproj
+ create mode 100644 sir_again.R
+]0;~/hosp_delaygcgibsons-MacBook-Pro:hosp_delay gcgibson$ git push origi[K[Kgin master
+Enumerating objects: 53, done.
+Counting objects:   1% (1/53)   Counting objects:   3% (2/53)   Counting objects:   5% (3/53)   Counting objects:   7% (4/53)   Counting objects:   9% (5/53)   Counting objects:  11% (6/53)   Counting objects:  13% (7/53)   Counting objects:  15% (8/53)   Counting objects:  16% (9/53)   Counting objects:  18% (10/53)   Counting objects:  20% (11/53)   Counting objects:  22% (12/53)   Counting objects:  24% (13/53)   Counting objects:  26% (14/53)   Counting objects:  28% (15/53)   Counting objects:  30% (16/53)   Counting objects:  32% (17/53)   Counting objects:  33% (18/53)   Counting objects:  35% (19/53)   Counting objects:  37% (20/53)   Counting objects:  39% (21/53)   Counting objects:  41% (22/53)   Counting objects:  43% (23/53)   Counting objects:  45% (24/53)   Counting objects:  47% (25/53)   Counting objects:  49% (26/53)   Counting objects:  50% (27/53)   Counting objects:  52% (28/53)   Counting objects:  54% (29/53)   Counting objects:  56% (30/53)   Counting objects:  58% (31/53)   Counting objects:  60% (32/53)   Counting objects:  62% (33/53)   Counting objects:  64% (34/53)   Counting objects:  66% (35/53)   Counting objects:  67% (36/53)   Counting objects:  69% (37/53)   Counting objects:  71% (38/53)   Counting objects:  73% (39/53)   Counting objects:  75% (40/53)   Counting objects:  77% (41/53)   Counting objects:  79% (42/53)   Counting objects:  81% (43/53)   Counting objects:  83% (44/53)   Counting objects:  84% (45/53)   Counting objects:  86% (46/53)   Counting objects:  88% (47/53)   Counting objects:  90% (48/53)   Counting objects:  92% (49/53)   Counting objects:  94% (50/53)   Counting objects:  96% (51/53)   Counting objects:  98% (52/53)   Counting objects: 100% (53/53)   Counting objects: 100% (53/53), done.
+Delta compression using up to 4 threads
+Compressing objects:   2% (1/45)   Compressing objects:   4% (2/45)   Compressing objects:   6% (3/45)   Compressing objects:   8% (4/45)   Compressing objects:  11% (5/45)   Compressing objects:  13% (6/45)   Compressing objects:  15% (7/45)   Compressing objects:  17% (8/45)   Compressing objects:  20% (9/45)   Compressing objects:  22% (10/45)   Compressing objects:  24% (11/45)   Compressing objects:  26% (12/45)   Compressing objects:  28% (13/45)   Compressing objects:  31% (14/45)   Compressing objects:  33% (15/45)   Compressing objects:  35% (16/45)   Compressing objects:  37% (17/45)   Compressing objects:  40% (18/45)   Compressing objects:  42% (19/45)   Compressing objects:  44% (20/45)   Compressing objects:  46% (21/45)   Compressing objects:  48% (22/45)   Compressing objects:  51% (23/45)   Compressing objects:  53% (24/45)   Compressing objects:  55% (25/45)   Compressing objects:  57% (26/45)   Compressing objects:  60% (27/45)   Compressing objects:  62% (28/45)   Compressing objects:  64% (29/45)   Compressing objects:  66% (30/45)   Compressing objects:  68% (31/45)   Compressing objects:  71% (32/45)   Compressing objects:  73% (33/45)   Compressing objects:  75% (34/45)   Compressing objects:  77% (35/45)   Compressing objects:  80% (36/45)   Compressing objects:  82% (37/45)   Compressing objects:  84% (38/45)   Compressing objects:  86% (39/45)   Compressing objects:  88% (40/45)   Compressing objects:  91% (41/45)   Compressing objects:  93% (42/45)   Compressing objects:  95% (43/45)   Compressing objects:  97% (44/45)   Compressing objects: 100% (45/45)   Compressing objects: 100% (45/45), done.
+Writing objects:   1% (1/52)   Writing objects:   3% (2/52)   Writing objects:   3% (2/52), 1.07 MiB | 191.00 KiB/s   Writing objects:   3% (2/52), 1.13 MiB | 160.00 KiB/s   Writing objects:   3% (2/52), 1.31 MiB | 157.00 KiB/s   Writing objects:   5% (3/52), 1.31 MiB | 157.00 KiB/s   Writing objects:   7% (4/52), 1.31 MiB | 157.00 KiB/s   Writing objects:   9% (5/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  11% (6/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  13% (7/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  15% (8/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  17% (9/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  19% (10/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  21% (11/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  23% (12/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  25% (13/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  26% (14/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  28% (15/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  30% (16/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  32% (17/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  34% (18/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  36% (19/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  38% (20/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  40% (21/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  42% (22/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  44% (23/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  46% (24/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  48% (25/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  50% (26/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  51% (27/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  53% (28/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  55% (29/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  57% (30/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  61% (32/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  63% (33/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  65% (34/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  67% (35/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  69% (36/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  71% (37/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  73% (38/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  75% (39/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  76% (40/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  78% (41/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  80% (42/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  82% (43/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  84% (44/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  86% (45/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  88% (46/52), 1.31 MiB | 157.00 KiB/s   Writing objects:  88% (46/52), 1.44 MiB | 162.00 KiB/s   Writing objects:  88% (46/52), 1.81 MiB | 178.00 KiB/s   Writing objects:  88% (46/52), 2.00 MiB | 186.00 KiB/s   Writing objects:  88% (46/52), 2.31 MiB | 197.00 KiB/s   Writing objects:  90% (47/52), 2.50 MiB | 252.00 KiB/s   Writing objects:  92% (48/52), 2.50 MiB | 252.00 KiB/s   Writing objects:  94% (49/52), 2.50 MiB | 252.00 KiB/s   Writing objects:  98% (51/52), 2.50 MiB | 252.00 KiB/s   Writing objects: 100% (52/52), 2.50 MiB | 252.00 KiB/s   Writing objects: 100% (52/52), 2.59 MiB | 203.00 KiB/s, done.
+Total 52 (delta 5), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/5)[Kremote: Resolving deltas:  20% (1/5)[Kremote: Resolving deltas:  40% (2/5)[Kremote: Resolving deltas:  60% (3/5)[Kremote: Resolving deltas:  80% (4/5)[Kremote: Resolving deltas: 100% (5/5)[Kremote: Resolving deltas: 100% (5/5), done.[K
+To https://github.com/gcgibson/stan_covid.git
+   8a2dcf5..5875338  master -> master
+[Kgcgibsons-MacBook-Pro:hosp_delay gcgibson$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	[31mmodified:   .Rproj.user/33E36EF3/console06/A24FB66[m
+	[31mmodified:   .Rproj.user/33E36EF3/console06/INDEX001[m
+	[31mmodified:   .Rproj.user/33E36EF3/sources/prop/FF4C7BC3[m
+	[31mmodified:   .Rproj.user/33E36EF3/sources/prop/INDEX[m
+	[31mdeleted:    .Rproj.user/33E36EF3/sources/s-A5E4C9D5/333A30E[m
+	[31mdeleted:    .Rproj.user/33E36EF3/sources/s-A5E4C9D5/AF36427E[m
+	[31mdeleted:    .Rproj.user/33E36EF3/sources/s-A5E4C9D5/BE12D60B[m
+	[31mdeleted:    .Rproj.user/33E36EF3/sources/s-A5E4C9D5/F4527E9E[m
+	[31mmodified:   .Rproj.user/33E36EF3/sources/s-A5E4C9D5/F7645B37[m
+	[31mmodified:   .Rproj.user/33E36EF3/sources/s-A5E4C9D5/F7645B37-contents[m
+	[31mmodified:   .Rproj.user/shared/notebooks/paths[m
+	[31mmodified:   SI_fit.rds[m
+	[31mmodified:   SI_fit.stan[m
+	[31mmodified:   sir_again.R[m
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	[31m.gitignore[m
+	[31mjags_stochastic_sir.R[m
+	[31msir_again_d.R[m
+
+no changes added to commit (use "git add" and/or "git commit -a")
+]0;~/hosp_delaygcgibsons-MacBook-Pro:hosp_delay gcgibson$ git dad[K[K[Kadd -A

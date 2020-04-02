@@ -18,14 +18,13 @@ cat(
   real[] x_r,
   int[] x_i) {
   
-  real dydt[5];
+  real dydt[4];
   
   dydt[1] = - params[1] * y[1] * y[2];
   dydt[2] = params[1] * y[1] * y[2] - params[3] * y[2];
-  dydt[3] =  params[3] * y[2] - params[2] * y[3] - params[4]*y[3];
+  dydt[3] =  params[3] * y[2] - params[2] * y[3];
   dydt[4] = params[2] * y[3];
-  dydt[5] = params[4] *y[3];
-  
+
   return dydt;
   }
   
@@ -38,9 +37,9 @@ cat(
   int<lower = 1> n_sample; // Number of hosts sampled at each time point.
   int<lower = 1> n_fake; // This is to generate "predicted"/"unsampled" data
   
-  int y[n_obs]; // The binomially distributed data
+  real y[n_obs]; // The binomially distributed data
   int d[n_obs]; // The binomially distributed data
-
+  
   real t0; // Initial time point (zero)
   real ts[n_obs]; // Time points that were sampled
   
@@ -53,35 +52,40 @@ cat(
   }
   
   parameters {
-    real<lower = 0> params[n_params]; // Model parameters
-    real<lower = 0, upper = 1> S0; // Initial fraction of hosts susceptible
+  real<lower = 0> params[n_params]; // Model parameters
+  real<lower = 0, upper = 1> S0; // Initial fraction of hosts susceptible
+  real y_latent[n_obs];
   }
   
   transformed parameters{
   real y_hat[n_obs, n_difeq]; // Output from the ODE solver
   real y0[n_difeq]; // Initial conditions for both S and I
   
+
   y0[1] = S0;
   y0[2] = (1 - S0)/2;
   y0[3] = (1-S0)/2;
   y0[4] = 0;
-  y0[5] = 0;
-  
+
   y_hat = integrate_ode_rk45(SI, y0, t0, ts, params, x_r, x_i);
   
   }
   
   model {
-  params[1] ~ normal(.95, .001); //constrained to be positive
+  // parameter estimates come from
+  // https://www.medrxiv.org/content/10.1101/2020.03.21.20040303v2.full.pdf+html
+  params[1] ~ normal(.95, .001); //prior estimate for beta from 
   params[2] ~ normal(1/3.5, .001); //constrained to be positive
   params[3] ~ normal(1/3.65, .001); //constrained to be positive
-  params[4] ~ normal(1/12, .01); //constrained to be positive
 
   S0 ~ normal(0.5, 0.5); //constrained to be 0-1.
-  
-  y ~ binomial(n_sample, y_hat[, 2]); //y_hat[,2] are the fractions infected from the ODE solver
-  d ~ binomial(n_sample, y_hat[, 5]); //y_hat[,2] are the fractions infected from the ODE solver
-
+  for (i in 1:n_obs){
+    y_latent[i] ~ normal(n_sample*y_hat[i, 2],.0001); //y_hat[,2] are the fractions infected from the ODE solver
+  }
+  y ~ normal(y_latent,1);
+   # for (d_i in 14:n_obs){
+   #   d[d_i] ~ normal(y[n_obs-13]*.0134,1); //y_hat[,2] are the fractions infected from the ODE solver
+   # }
   }
   
   generated quantities {
@@ -115,8 +119,8 @@ state_testing_data_ny <- state_testing_data[state_testing_data$state=="NY",]
 # For stan model we need the following variables:
 state_testing_data_ny$death[is.na(state_testing_data_ny$death)] <- 0
 stan_d = list(n_obs = length(state_testing_data_ny$positive),
-              n_params = 4,
-              n_difeq = 5,
+              n_params = 3,
+              n_difeq = 4,
               n_sample = 10^6,
               n_fake = length(1:length(state_testing_data_ny$positive))+7*4,
               y = state_testing_data_ny$positive,
@@ -138,7 +142,7 @@ test = stan("SI_fit.stan",
 mod = stan(fit = test,
            data = stan_d,
            pars = params_monitor,
-           chains = 3,
+           chains = 1,
            warmup = 500,
            iter = 1500)
 
@@ -158,4 +162,3 @@ df_for_plot <- data.frame(x=rep(1:col_num,length.out=3000*col_num),y=c(t(posts$f
 ggplot(df_for_plot,aes(x=x,y=y*10^6)) + geom_point(alpha=.1) + theme_bw() + geom_line(data=state_testing_data_ny,aes(x=1:length(positive),y=positive,col='truth'))+
   geom_line(data=state_testing_data_ny,aes(x=1:length(death),y=death,col='truth'))
 
-       
