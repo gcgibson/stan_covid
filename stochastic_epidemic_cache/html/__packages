@@ -1,0 +1,10 @@
+base
+deSolve
+dplyr
+ggplot2
+cowplot
+coda
+rjags
+R2jags
+reticulate
+openintro

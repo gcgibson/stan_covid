@@ -66,9 +66,38 @@ model {
     for (i in 1:n_obs){
       y[i] ~ dnorm(I[i],1)
     }
-   for (j in 14:d_length){
-        d[j] ~ dnorm(I[j-13]*.0134 ,1000)
-    }
+
+#   death_dist ~ dcat(mPriorProb[])
+  # for (prior_cat_probs in 1:5){
+  #    mPriorProb[prior_cat_probs] <- 0
+  # }
+  
+  # mPriorProb[6] <- .05
+   #mPriorProb[7] <- .05
+  # mPriorProb[8] <- .1
+  # mPriorProb[9] <- .1
+  # mPriorProb[10] <- .1
+  # mPriorProb[11] <- .2
+  # mPriorProb[12] <- .2
+  # mPriorProb[13] <- .2
+  # mPriorProb[14] <- .2
+  # mPriorProb[15] <- .2
+  # mPriorProb[16] <- .2
+  # mPriorProb[17] <- .2
+  # mPriorProb[18] <- .2
+  # mPriorProb[19] <- .2
+  # mPriorProb[20] <- .2
+  # mPriorProb[21] <- .2
+  # mPriorProb[22] <- .2
+  # mPriorProb[23] <- .1
+  # mPriorProb[24] <- .1
+
+
+
+   #for (j in 14:d_length){
+    #    idx[j] <- max(j-death_dist,1)
+   #     d[j] ~ dnorm(I[idx[j]]*.0134 ,1000)
+   # }
 
 }"
 state_testing_data <- read.csv("/Users/gcgibson/Downloads/states-daily.csv")
@@ -93,11 +122,9 @@ state_testing_data_ny$death[is.na(state_testing_data_ny$death)] <- 0
 # subset to last 20 rows
 nrow_df <- nrow(state_testing_data_ny)
 state_testing_data_ny_subset <- state_testing_data_ny[tail(1:nrow_df,20),]
-h <- 0
+h <- 7*4
 
 stan_d = list(n_obs = length(state_testing_data_ny_subset$positive)+h,
-              n_params = 3,
-              n_difeq = 4,
               n_sample = 10^6,
               y = c(state_testing_data_ny_subset$positive,rep(NA,h)),
               #y=rep(NA,length(state_testing_data_ny_subset$positive)+7*4),
@@ -114,6 +141,10 @@ library(ggplot2)
 data_for_plot <- data.frame(x=rep(1:dim(out_jags$I)[1],dim(out_jags$I)[2]),
                             y=c(out_jags$I),group=rep(1:dim(out_jags$I)[2],each=dim(out_jags$I)[1]))
 
-ggplot(data_for_plot,aes(x=x,y=y,group=group)) + geom_line(alpha=.1) + theme_bw() + geom_line(data=data.frame(x=1:length(state_testing_data_ny_subset$positive),y=state_testing_data_ny_subset$positive),aes(x=x,y=y,group=1,col='observed'))
+forecast_plot <- ggplot(data_for_plot,aes(x=x,y=y,group=group)) + geom_line(alpha=.1) + theme_bw() + geom_line(data=data.frame(x=1:length(state_testing_data_ny_subset$positive),y=state_testing_data_ny_subset$positive),aes(x=x,y=y,group=1,col='observed'))
+nowcast_plot <- ggplot(data_for_plot,aes(x=x,y=y,group=group)) + geom_line(alpha=.1) + theme_bw() + geom_line(data=data.frame(x=1:length(state_testing_data_ny_subset$positive),y=state_testing_data_ny_subset$positive),aes(x=x,y=y,group=1,col='observed')) +
+  geom_line(data=data.frame(x=1:length(state_testing_data_ny_subset$positive),y=state_testing_data_ny_subset$death),aes(x=x,y=y,group=1,col='death observed'))
+
+
 hist(out_jags$beta)
 hist(out_jags$gamma)
